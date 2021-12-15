@@ -1,10 +1,10 @@
 <script>
-    import { todos, saveStorage } from '~/store';
+    import { todos, saveStorage } from "~/store";
 
-    export let todo
+    export let todo;
 
     let isEditMode = false;
-    let title = '';
+    let title = "";
 
     function onEditMode() {
         title = todo.title;
@@ -19,7 +19,7 @@
         offEditMode();
     }
     function deleteTodo() {
-        $todos = $todos.filter(t => t.id !== todo.id);
+        $todos = $todos.filter((t) => t.id !== todo.id);
         saveStorage();
     }
 </script>
@@ -31,20 +31,12 @@
                 bind:value={title}
                 type="text"
                 class="form-control"
-                on:keyup={e => {
-                    if (e.key === 'Enter') updateTodo();
+                on:keyup={(e) => {
+                    if (e.key === "Enter") updateTodo();
                 }}
             />
-            <button
-                class="btn btn-primary"
-                on:click={updateTodo}
-            >
-                OK
-            </button>
-            <button
-                class="btn btn-secondary"
-                on:click={offEditMode}
-            >
+            <button class="btn btn-primary" on:click={updateTodo}> OK </button>
+            <button class="btn btn-secondary" on:click={offEditMode}>
                 Cancel
             </button>
         </div>
@@ -53,16 +45,10 @@
             <div class="title">
                 {todo.title}
             </div>
-            <button
-                class="btn btn-secondary"
-                on:click={onEditMode}
-            >
+            <button class="btn btn-secondary" on:click={onEditMode}>
                 Edit
             </button>
-            <button
-                class="btn btn-danger"
-                on:click={deleteTodo}
-            >
+            <button class="btn btn-danger" on:click={deleteTodo}>
                 Delete
             </button>
         </div>
@@ -70,25 +56,25 @@
 </div>
 
 <style lang="scss">
-.todo {
-  padding: 10px 14px;
-  border-radius: 6px;
-  &:hover {
-    background-color: $gray-100;
-  }
-  .edit-mode,
-  .normal-mode {
-    display: flex;
-  }
-  .title {
-    flex-grow: 1;
-    display: flex;
-    align-items: center;
-    font-size: 18px;
-  }
-  .btn {
-    flex-shrink: 0;
-    margin-left: 10px;
-  }
-}
+    .todo {
+        padding: 10px 14px;
+        border-radius: 6px;
+        &:hover {
+            background-color: $gray-100;
+        }
+        .edit-mode,
+        .normal-mode {
+            display: flex;
+        }
+        .title {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            font-size: 18px;
+        }
+        .btn {
+            flex-shrink: 0;
+            margin-left: 10px;
+        }
+    }
 </style>

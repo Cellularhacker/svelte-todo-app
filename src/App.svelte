@@ -1,9 +1,9 @@
 <script>
-    import {todos} from '~/store';
-    import CreateTodo from '~/components/CreateTodo';
-    import Todo from '~/components/Todo'
+    import { todos } from "~/store";
+    import CreateTodo from "~/components/CreateTodo";
+    import Todo from "~/components/Todo";
 
-    const storageTodos = localStorage.getItem('todos')
+    const storageTodos = localStorage.getItem("todos");
     if (storageTodos) {
         $todos = JSON.parse(storageTodos);
     }
@@ -13,13 +13,13 @@
     <CreateTodo />
     <div class="todos">
         {#each $todos as todo (todo.id)}
-            <Todo {todo}/>
+            <Todo {todo} />
         {/each}
     </div>
 </div>
 
 <style lang="scss">
     .todos {
-      padding: 20px 0;
+        padding: 20px 0;
     }
 </style>
